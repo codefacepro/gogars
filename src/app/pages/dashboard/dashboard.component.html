@@ -1,0 +1,33 @@
+<app-info-panels></app-info-panels>
+
+<app-info-cards></app-info-cards>
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+
+
+    </div>
+    <div class="card-body pt-0 widget-body">
+        <h3>Recent Orders</h3>
+        <div class="table-responsive">
+            <ng2-smart-table class="table table-hover" [settings]="settings" [source]="data" (deleteConfirm)="onDeleteConfirm($event)"
+                (rowSelect)="onRowSelect($event)" (userRowSelect)="onUserRowSelect($event)" (rowHover)="onRowHover($event)"></ng2-smart-table>
+        </div>
+    </div>
+</div>
+<!-- <div class="row mb-2">
+    <div class="col-lg-6 mb-4">
+        <app-visitors></app-visitors>
+    </div>  
+    <div class="col-lg-6 mb-4">
+        <app-cost></app-cost>
+    </div>   
+</div> -->
+
+<!-- <div class="row">
+    <div class="col-lg-5 mb-4">
+        <app-disk-space></app-disk-space>
+    </div>  
+    <div class="col-lg-7 mb-4">
+        <app-todo></app-todo>
+    </div>   
+</div> -->

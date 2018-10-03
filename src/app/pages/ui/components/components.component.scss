@@ -1,0 +1,35 @@
+.tooltip-static .tooltip {
+    position: relative;
+    display: block;
+    opacity: 1;
+    z-index: 1;
+    .tooltip-inner{
+        max-width: 100%;
+    }
+}
+
+.popover-static .popover {
+    position: relative;
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    z-index: 1;
+}
+.breadcrumb{
+    display: none;
+}
+.preview-thumbnail.nav-tabs {
+    border: none;
+    margin-top: 15px; }
+    .preview-thumbnail.nav-tabs li {
+      width: 18%;
+      margin-right: 2.5%;     border: 1px solid #f73e37;
+    height: 46px}
+      .preview-thumbnail.nav-tabs li img {
+        max-width: 100%;
+        display: block; }
+      .preview-thumbnail.nav-tabs li a {
+        padding: 0;
+        margin: 0; }
+      .preview-thumbnail.nav-tabs li:last-of-type {
+        margin-right: 0; }

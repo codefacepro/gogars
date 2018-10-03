@@ -1,0 +1,140 @@
+
+<button type="button" (click)="backClicked()"  class="btn btn-outline-primary w-100p mb-1">< Back </button>
+<div class="row">
+    <div widget class="col-xl-6 mb-2 card border-0 box-shadow">
+        <div class="card-header transparent border-0 text-muted">
+            <h5 class="mb-0">{{userdatafull.Productname}}</h5>
+
+        </div>
+        <div class="card-body pt-0 widget-body">
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item" [ngClass]="{'active': i==0}" *ngFor="let img of userdatafull.Images;let i=index">
+
+                        <img class="d-block img-fluid w-100 h-100" [src]="imgurl+img" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+
+                        </div>
+                    </div>
+                    <div class="carousel-item active"  *ngIf="!userdatafull.Images">
+
+                        <img class="d-block img-fluid w-100 h-100" src="assets/img/users/default-user.jpg" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+
+                        </div>
+                    </div>
+
+                </div>
+                <ul class="preview-thumbnail nav nav-tabs nextimg carousel-indicators">
+                    <li *ngFor="let img of userdatafull.Images;let i=index"><a data-target="#carouselExampleIndicators" [attr.data-slide-to]="i"><img
+                                [src]="imgurl+img" /></a></li>
+
+                </ul>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div widget class="col-xl-6 mb-2 card border-0 box-shadow">
+        <h3 class="product-title">{{userdatafull.Productname}}({{userdatafull.category}})</h3>
+
+        <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae
+            et! Massa senectus enim minim sociosqu delectus posuere.</p>
+        <p class="vote" *ngIf="userdatafull.DiscountName"><strong>{{userdatafull.DiscountName}}</strong> Get extra {{userdatafull.DiscountAmount}}% off (price inclusive of discount)</p>
+        <h4 class="price">current price: <span>${{userdatafull.price}}</span></h4>
+
+        <h5 class="sizes">sizes:
+
+            <span class="size" data-toggle="tooltip" title="xtra large">{{userdatafull.size}}</span>
+        </h5>
+        <h5 class=""><b>COLORS : </b>{{userdatafull.color}}
+        </h5>
+
+
+        <form data-select2-id="8">
+
+
+            <div class="form-group">
+                <label>Multiple select Assign</label>
+                <select class="form-control multiple-select select2-hidden-accessible" multiple="" data-select2-id="4" tabindex="-1" aria-hidden="true">
+                    <option data-select2-id="19">Dealer </option>
+                    <option data-select2-id="20">Dealer2</option>
+                    <option data-select2-id="21">Dealer3</option>
+                    <option data-select2-id="22">Dealer4</option>
+                    <option data-select2-id="23">Dealer5</option>
+                    <option data-select2-id="24">Dealer6</option>
+                    <option data-select2-id="25">Dealer7</option>
+                    <option data-select2-id="26">Dealer8 </option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-12">
+
+        <div class="clearfix">
+            <ul class="nav nav-tabs custom top">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#ta"> Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tb">Order request</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " data-toggle="tab" href="#tc">Product Confirmation</a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content top">
+            <div class="tab-pane active" id="ta">
+                <p>{{userdatafull.highlights}}</p>
+            </div>
+            <div class="tab-pane" id="tb">
+                <div widget class="card border-0 box-shadow">
+                    <div class="card-header transparent border-0 text-muted">
+
+
+                    </div>
+                    <div class="card-body pt-0 widget-body">
+                        <div class="table-responsive">
+                            <ng2-smart-table class="table table-hover" [settings]="settings" [source]="data" (deleteConfirm)="onDeleteConfirm($event)"
+                                (rowSelect)="onRowSelect($event)" (userRowSelect)="onUserRowSelect($event)" (rowHover)="onRowHover($event)"></ng2-smart-table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane" id="tc">
+
+                <h5 class="sizes">Product Confirmation</h5>
+                <p><b>Date</b> : 20/5/2018</p>
+                <p><b>Contact No</b> : 959709712345</p>
+                <p><b>Production times</b> : Bridal Dresses</p>
+                <p><b>Brand</b> : Akasa</p>
+                <p><b>Product Size</b> : xl</p>
+                <p><b>Color</b> : Blue</p>
+                <h5 class="sizes"> Location</h5>
+                <p>
+                    Long-Term Care 3rd Floor, 5700 Yonge Street Thiruvananthapuram, 629134</p>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
