@@ -1,7 +1,7 @@
 
-<button type="button" (click)="backClicked()"  class="btn btn-outline-primary w-100p mb-1">< Back </button>
+<button type="button" (click)="backClicked()"  class="btn btn-success    w-100p mb-4"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back </button>
 <div class="row">
-    <div widget class="col-xl-6 mb-2 card border-0 box-shadow">
+    <div widget class="col-xl-6 mb-2 card border-0 ">
         <div class="card-header transparent border-0 text-muted">
             <h5 class="mb-0">{{userdatafull.Productname}}</h5>
 
@@ -44,15 +44,17 @@
         </div>
 
     </div>
-    <div widget class="col-xl-6 mb-2 card border-0 box-shadow">
-        <h3 class="product-title">{{userdatafull.Productname}}({{userdatafull.category}})</h3>
+    <div widget class="col-xl-6 mb-2 card border-0  ">
+        <h3 class="product-title mb-2 mt-5">{{userdatafull.Productname}}({{userdatafull.category}})</h3>
 
         <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae
             et! Massa senectus enim minim sociosqu delectus posuere.</p>
-        <p class="vote" *ngIf="userdatafull.DiscountName"><strong>{{userdatafull.DiscountName}}</strong> Get extra {{userdatafull.DiscountAmount}}% off (price inclusive of discount)</p>
-        <h4 class="price">current price: <span>${{userdatafull.price}}</span></h4>
+        <h5 class="vote code_tx" *ngIf="userdatafull.DiscountName">
+            <strong>{{userdatafull.DiscountName}}</strong> <br>
+            <small>Get extra {{userdatafull.DiscountAmount}}% off (price inclusive of discount)</small></h5>
+        <h4 class="price">Price: <span>${{userdatafull.price}}</span></h4>
 
-        <h5 class="sizes">sizes:
+        <h5 class="sizes ">Sizes:
 
             <span class="size" data-toggle="tooltip" title="xtra large">{{userdatafull.size}}</span>
         </h5>

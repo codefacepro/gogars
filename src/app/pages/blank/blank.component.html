@@ -1,18 +1,32 @@
 
-<div class="row mb-1">
-    <div class="col">
-        <div class="input-group mb-3 box-shadow"> 
-            <div class="input-group-prepend">
-                <span class="input-group-text border-top-0 border-left-0 border-bottom-0"><i class="fa fa-search"></i></span>
-            </div>                   
-            <input type="text" [(ngModel)]="searchText"  placeholder="Search Product by any..." class="form-control border-0">
+<div class="row mb-4 mt-4">
+
+
+
+
+    <div class="col-md-2">
+        
+         
             <div class="input-group-append">
-                <span (click)="openModal(modalContent, null)" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-user-plus"></i></span>
-                <span (click)="toggle('grid')" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-th"></i></span>
-                <span (click)="toggle('list')" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-list"></i></span>
+                <span (click)="openModal(modalContent, null)" class="btn btn-success  "><i class="fa fa-plus-circle"></i> Add Products</span>
+                
+            </div>
+         
+    </div>
+    <div class="col-md-4"></div>  
+    <div class="col-md-6">
+            <div class="input-group mb-3 box-shadow"> 
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-top-0 border-left-0 border-bottom-0"><i class="fa fa-search"></i></span>
+                </div>                   
+                <input type="text" [(ngModel)]="searchText"  placeholder="Search Product by any..." class="form-control border-0">
+                <div class="input-group-append">
+                    
+                    <span (click)="toggle('grid')" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-th"></i></span>
+                    <span (click)="toggle('list')" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-list"></i></span>
+                </div>
             </div>
         </div>
-    </div>
 </div>
 
 <div *ngIf="type=='grid'" class="row">
@@ -54,13 +68,12 @@
                                         <div class="col-4 text-gray text-right pr-0 font-italic text-truncate">Category:</div>
                                         <div class="col-8 pl-2 text-truncate fs-12 pt-2p">{{user.category}}</div>
                                     </div>
-                                    <div class="row view-div">
+                                    <div class="  view-div">
                                             <button  type="button"
-                                            class="btn btn-success btn-s view-btn"
+                                            class="btn btn-warning btn-sm view-btn pull-right"
                                             (click)="goviewpage(user)"
                                            
-                                          >
-                                            <span class="glyphicon glyphicon-upload"></span> View
+                                          > <i class="fa fa-eye" aria-hidden="true"></i> View
                                           </button>
                                     </div>
                                 </div>

@@ -1,18 +1,35 @@
-<div class="row mb-1">
-    <div class="col">
-        <div class="input-group mb-3 box-shadow"> 
-            <div class="input-group-prepend">
-                <span class="input-group-text border-top-0 border-left-0 border-bottom-0"><i class="fa fa-search"></i></span>
-            </div>                   
-            <input type="text" [(ngModel)]="searchText" placeholder="Search user by name..." class="form-control border-0">
+
+<div class="row mb-4 mt-4">
+
+
+
+
+    <div class="col-md-2">
+        
+         
             <div class="input-group-append">
-                <span (click)="openModal(modalContent, null)" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-user-plus"></i></span>
+                <span (click)="openModal(modalContent, null)" class="btn btn-success  "><i class="fa fa-user-plus"></i> Add User</span>
+                
+            </div>
+         
+    </div>
+    <div class="col-md-4"></div>  
+    <div class="col-md-6">
+            <div class="input-group mb-3 box-shadow"> 
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-top-0 border-left-0 border-bottom-0"><i class="fa fa-search"></i></span>
+                </div>                   
+                <input type="text" [(ngModel)]="searchText" placeholder="Search user by name..." class="form-control border-0">
+            <div class="input-group-append">
+                 
                 <span (click)="toggle('grid')" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-th"></i></span>
                 <span (click)="toggle('list')" class="input-group-text border-top-0 border-right-0 border-bottom-0"><i class="fa fa-list"></i></span>
             </div>
+            </div>
         </div>
-    </div>
 </div>
+
+ 
 
 <div *ngIf="type=='grid'" class="row">
     <div *ngFor="let user of users | UserSearchPipe : searchText | paginate: { itemsPerPage: 6, currentPage: p }; let i = index;" class="col-xl-4 col-lg-6 mb-4">
