@@ -1,12 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-
+import { Dashboardservice } from './dashboard.service'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [ Dashboardservice ]
 })
 export class DashboardComponent  {
-  public data = [];
+  public data:any = [];
   public settings = {
     selectMode: 'single',  //single|multi
     hideHeader: false,
@@ -14,7 +15,7 @@ export class DashboardComponent  {
     actions: {
       columnTitle: 'Actions',
       add: true,
-      edit: true,
+      // edit: true,
       delete: true,
       custom: [],
       position: 'right' // left|right
@@ -25,7 +26,7 @@ export class DashboardComponent  {
       cancelButtonContent: '<i class="fa fa-times text-danger"></i>'
     },
     edit: {
-      editButtonContent: '<i class="fa fa-pencil mr-3 text-primary"></i>',
+       editButtonContent: '<i class="fa fa-check mr-3 text-success"></i>',
       saveButtonContent: '<i class="fa fa-check mr-3 text-success"></i>',
       cancelButtonContent: '<i class="fa fa-times text-danger"></i>'
     },
@@ -35,43 +36,43 @@ export class DashboardComponent  {
     },
     noDataMessage: 'No data found',
     columns: {     
-      id: {
+      cartId: {
         title: 'ID',
         editable: false,
         width: '60px',
         type: 'html',
         valuePrepareFunction: (value) => { return '<div class="text-center">' + value + '</div>'; }       
       },
-      firstName: {
+      firstname: {
         title: 'Name',
         type: 'string',
         filter: true
       },
-      lastName: {
+      position: {
         title: 'User Role',
         type: 'string'
       },
-      username: {
+      contact: {
         title: 'Phone',
         type: 'string'
       },
-      email: {
+      address: {
         title: 'Location',
         type: 'string'
       },
-      age: {
+      price: {
         title: 'Price',
         type: 'number'
       },
-      Brand: {
-        title: 'Brand',
+      Productname: {
+        title: 'Product',
         type: 'number'
       },
-      Size: {
+      ordersize: {
         title: 'Size',
         type: 'number'
       },
-      Qty: {
+      Quantity: {
         title: 'Qty',
         type: 'number'
       }
@@ -82,12 +83,19 @@ export class DashboardComponent  {
       perPage: 10
     }
   };
-  constructor() { 
-    this.getData((data) => {
-      this.data = data;
-    });
+  constructor(public dashservice:Dashboardservice) { 
+    this.dashservice.getUsers().then( users => {console.log(users);
+      this.data =users;
+      this.data = this.data.details;}
+      
+    );   
+    // this.getData((data) => {
+    //   this.data = data;
+    //   console.log(this.data);
+    // });
   }
   public getData(data) {
+    console.log(data);
     const req = new XMLHttpRequest();
     req.open('GET', 'assets/data/users.json');
     req.onload = () => {

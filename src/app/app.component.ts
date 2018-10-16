@@ -17,8 +17,7 @@ export class AppComponent {
         this.router.navigateByUrl('/');
     }else{
         this.router.navigateByUrl('login');
-    }
-        
+    }        
       //  this.router.navigateByUrl('/user');
         this.settings = this.appSettings.settings;  
     }    

@@ -149,8 +149,7 @@ public userdatafull:any=[];
   }
  
   uploadFiles(files:File[],images){
-    console.log(images.join());
-   
+    console.log(images.join());   
   
   }
   goviewpage(Item){
